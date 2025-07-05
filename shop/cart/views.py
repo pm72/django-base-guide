@@ -6,4 +6,5 @@ from django.views.decorators.http import require_POST
 
 
 @require_POST
-def cart_add()
+def cart_add():
+  ...
