@@ -36,7 +36,7 @@ def cart_detail(request):
       'override': True,
     })
   
-  context ={
+  context = {
     'cart': cart,
   }
   
