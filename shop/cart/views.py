@@ -15,7 +15,7 @@ def cart_add(request, product_id):
     cd = form.cleaned_data
     cart.add(product=product, quantity=cd['quantity'], override_quantity=cd['override'])
 
-  return redirect('cart:cart_detail')   # url 'cart_detail'  შესაქმნელია
+  return redirect('cart:cart-detail')   # url 'cart-detail'  შესაქმნელია
 
 
 @require_POST
@@ -24,7 +24,7 @@ def cart_remove(request, product_id):
   product = get_object_or_404(Product, id=product_id)
   cart.remove(product)
 
-  return redirect('cart:cart_detail')   # url 'cart_detail'  შესაქმნელია
+  return redirect('cart:cart-detail')   # url 'cart-detail'  შესაქმნელია
 
 
 def cart_detail(request):
