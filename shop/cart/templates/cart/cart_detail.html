@@ -21,13 +21,11 @@
           <tr>
             <td>{{ item.product }}</td>
             <td>
-              <form action="{% url 'cart:cart-add' item.produc.id %}" method="post">
+              <form action="{% url 'cart:cart-add' item.product.id %}" method="post">
                 {% csrf_token %}
                 
-                {{ item.update_quantity_form.quantyty }}
+                {{ item.update_quantity_form.quantity }}
                 {{ item.update_quantity_form.override }}
-                <input class="form-control" type="number" name="quantity" min="1" max="20" value="1" required>
-                <input type="hidden" name="override" value="False">
                 <button type="submit" class="btn btn-sm btn-outline-secondary">განახლება</button>
               </form>
             </td>
