@@ -10,6 +10,7 @@
       <thead>
         <tr>
           <th>პროდუქტი</th>
+          <th>კატეგორია</th>
           <th>რაოდენობა</th>
           <th>წაშლა</th>
           <th>ერთეულის ფასი</th>
@@ -20,6 +21,7 @@
         {% for item in cart %}
           <tr>
             <td>{{ item.product }}</td>
+            <td>{{ item.product.category }}</td>
             <td>
               <form action="{% url 'cart:cart-add' item.product.id %}" method="post">
                 {% csrf_token %}
