@@ -14,10 +14,17 @@ def product_list(request, category_slug=None):
     category = get_object_or_404(Category, slug=category_slug)
     products = products.filter(category=category)
   
+  # სორტირების ლოგიკა
+  sort = request.GET.get('sort')
+
+  if sort in ('name', '-name', 'price', '-price'):
+    products = products.order_by(sort)
+
   context = {
     'category': category,
     'categories': categories,
-    'products': products
+    'products': products,
+    'current_sort': sort,
   }
 
   return render(request, 'main/product/list.html', context)
